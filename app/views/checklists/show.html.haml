@@ -7,6 +7,13 @@
 %p
   %strong Description:
   = @checklist.description
+  
+%p
+  %strong Question Title:
+  = @checklist.questions.last.title
+%p
+  %strong Question Description:
+  = @checklist.questions.last.description  
 
 %br/
 = link_to 'New Checklist', new_checklist_path    

@@ -1,20 +1,27 @@
-= form_with(model: checklist, local: true) do |form|
+= simple_form_for(@checklist) do |form| 
 
   - if checklist.errors.any?
     #error_explanation
       %ul
-        - checklist.errors.full_messages.each do |message|
-          %li
-            = message
-          
+        - @checklist.errors.full_messages.each do |message|
+          %li= message         
   .field
     = form.label :title
-    = form.text_field :title, required: 'required'
-    
+    = form.text_field :title
+
   .field
     = form.label :description
-    = form.text_area :description, required: 'required'
-    
+    = form.text_area :description    
+
+  %table
+    %thead
+      %tr
+        %th Action
+        %th Question Title
+        %th Question Description
+    %tbody
+      = form.simple_fields_for :questions do |builder|
+        = render 'question', f: builder                  
+
   .actions
-    = form.submit
-    
+    = form.submit    
