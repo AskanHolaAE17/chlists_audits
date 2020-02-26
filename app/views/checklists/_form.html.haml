@@ -1,27 +1,20 @@
-= simple_form_for(@checklist) do |form| 
-
-  - if checklist.errors.any?
-    #error_explanation
-      %ul
-        - @checklist.errors.full_messages.each do |message|
-          %li= message         
-  .field
-    = form.label :title
-    = form.text_field :title
-
-  .field
-    = form.label :description
-    = form.text_area :description    
+= simple_form_for(@checklist) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :title
+    = f.input :description  
 
   %table
     %thead
       %tr
-        %th Action
+        %th Actions
         %th Question Title
         %th Question Description
-    %tbody
-      = form.simple_fields_for :questions do |builder|
-        = render 'question', f: builder                  
+        
+    %tbody.fields
+      = f.simple_fields_for :questions do |builder|
+        = render 'question', f: builder
 
-  .actions
-    = form.submit    
+  .form-actions
+    = f.button :submit
+    = link_to_add_row('Add Question', f, :questions, class: 'btn btn-primary')   
