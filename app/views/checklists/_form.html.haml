@@ -7,14 +7,14 @@
   %table
     %thead
       %tr
-        %th Actions
+        %th Question Actions
         %th Question Title
         %th Question Description
         
-    %tbody.fields
+    %tbody.questions
       = f.simple_fields_for :questions do |builder|
-        = render 'question', f: builder
+        = render 'question_fields', f: builder
 
   .form-actions
     = f.button :submit
-    = link_to_add_row('Add Question', f, :questions, class: 'btn btn-primary')   
+    = link_to_add_association 'Add Question', f, :questions, class: 'btn btn-primary', data: { association_insertion_node: '.questions', association_insertion_method: :append }
