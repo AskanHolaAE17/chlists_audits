@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Checklist < ApplicationRecord
+
+  has_many :questions
+
   validates :title,         presence: true, length: { maximum: 40 }
   validates :description,   presence: true
 end
