@@ -7,6 +7,7 @@ class AuditsController < ApplicationController
 
   def index
     @audits = Audit.page(params[:page]).per(10)
+    @checklists = Checklist.all
   end 
   
   def destroy
