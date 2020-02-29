@@ -10,6 +10,5 @@
         
   .questions
     .form-actions
-      = f.button :submit, 'Save'
-    
-
+      = f.button :submit, 'Save', class: 'btn'
+      = link_to 'Cancel Saving', audits_path, class: 'btn'

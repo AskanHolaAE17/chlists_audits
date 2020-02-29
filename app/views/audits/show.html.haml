@@ -1,4 +1,3 @@
-
 %p#notice= notice
 %p
   %strong Checklist Title:
@@ -32,6 +31,5 @@
           = question.comment          
 
 
-= link_to 'Edit', add_audit_fields_checklist_path(@checklist)
-|
-\#{link_to 'To Audits Page', audits_path}
+= link_to 'Edit', add_audit_fields_checklist_path(@checklist), class: 'btn'
+= link_to 'To Audits Page', audits_path, class: 'btn'
