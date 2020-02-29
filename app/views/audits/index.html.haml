@@ -3,6 +3,9 @@
   
 %h2 Audits
 
+= render 'fill_checklist'
+= link_to 'To Checklists Page', checklists_path, class: 'btn'
+
 %table
   %thead
     %tr
@@ -27,4 +30,4 @@
 
 = paginate @audits
 
-= render 'fill_checklist'
+
