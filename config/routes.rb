@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     get   :add_audit_fields,    on: :member
     patch :update_audit_fields, on: :member
   end  
+  
+  root  'checklists#index'
+  get '*path', to: 'checklists#index'  
 
 end
