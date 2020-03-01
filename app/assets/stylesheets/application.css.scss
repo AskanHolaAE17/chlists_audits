@@ -2,9 +2,8 @@
 
 @import "materialize";
 
-
-@import "global";
-@import "elements";
-@import "paginator";
-@import "modal";
-@import "checklists"
+@import "global";      /* HTML basic elements style */
+@import "elements";    /* Buttons and other page elements style */
+@import "paginator";   /* Paginator style */
+@import "modal";       /* Dynamic modal windows style */
+@import "checklists"   /* Checklist model style */

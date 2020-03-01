@@ -8,13 +8,13 @@ module ChecklistService
       @checklist = checklist
     end   
 
-    def call
-      unless @checklist.audit    
-        @checklist.build_audit 
+    def call   
+      unless @checklist.audit   
+        @checklist.build_audit  # Set Audit object to Checklist     
       else  
-        @checklist.audit.touch
+        @checklist.audit.touch  # Update Audit 'updated_at' field
       end  
-      @checklist
+      @checklist   # Return Checklist with the Audit object
     end
     
   end

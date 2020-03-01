@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Controller for user sees the list of audits
+# Controller for managing the Audits
 class AuditsController < ApplicationController
 
   before_action :set_audit,        only: [:show, :destroy]
@@ -25,9 +25,8 @@ class AuditsController < ApplicationController
       @audit = Audit.find(params[:id])
     end    
     
-    # Only allow a list of trusted parameters through.
     def checklist_params
-      params
+      params   # Allows a list of trusted parameters for Audit update 
         .require(:checklist)
         .permit(:title, :description,
           questions_attributes: Question.attribute_names.map(&:to_sym).push(:_destroy))

@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-# Controller for user sees the list of checklists
+# Controller for managing the Checklists
 class ChecklistsController < ApplicationController
+
   before_action :set_checklist, only: [:show, :edit, :update, :add_audit_fields, :update_audit_fields, :destroy]
 
   def index
@@ -10,7 +11,7 @@ class ChecklistsController < ApplicationController
   
   def new
     @checklist = Checklist.new
-    @checklist.questions.build
+    @checklist.questions.build   # For adding dynamic questions via the form
   end
   
   def create
@@ -36,14 +37,13 @@ class ChecklistsController < ApplicationController
     end
   end    
     
-  def add_audit_fields    
-  end
+  def add_audit_fields; end   # From for adding answer and comment data to Checklist
   
-  def update_audit_fields
-    title = @checklist.title   
+  def update_audit_fields   
+    # Set the Audit object to Checklist
     @checklist = ChecklistService::SetAuditData.call(@checklist)
     
-    if @checklist.update(checklist_params) and @checklist.update(title: title)
+    if @checklist.update(checklist_params) 
       redirect_to audits_path, notice: 'Audit was successfully created.' 
     else
       render :add_audit_fields
@@ -61,9 +61,8 @@ class ChecklistsController < ApplicationController
       @checklist = Checklist.find(params[:id])
     end  
 
-    # Only allow a list of trusted parameters through.
-    def checklist_params
-      params
+    def checklist_params   # Allows a list of trusted parameters for Checklist update 
+      params   
         .require(:checklist)
         .permit(:title, :description,
           questions_attributes: Question.attribute_names.map(&:to_sym).push(:_destroy))

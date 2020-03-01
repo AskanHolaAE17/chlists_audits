@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Model for Question
 class Question < ApplicationRecord
 
   belongs_to :checklist, optional: true
