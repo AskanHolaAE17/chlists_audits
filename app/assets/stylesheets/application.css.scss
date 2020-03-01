@@ -4,6 +4,7 @@
 
 @import "global";      /* HTML basic elements style */
 @import "elements";    /* Buttons and other page elements style */
+@import "errors";      /* Errors output style */
 @import "paginator";   /* Paginator style */
 @import "modal";       /* Dynamic modal windows style */
-@import "checklists"   /* Checklist model style */
+@import "checklists";  /* Checklist model style */

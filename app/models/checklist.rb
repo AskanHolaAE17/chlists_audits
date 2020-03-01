@@ -3,8 +3,9 @@
 # Model for Checklist
 class Checklist < ApplicationRecord
 
-  has_many :questions, dependent: :destroy
-  has_one  :audit
+  has_many   :questions, dependent: :destroy
+  has_one    :audit
+  belongs_to :user, optional: true
   
   # Settings for dinamical adding Questions to Checklists
   accepts_nested_attributes_for :questions, 
