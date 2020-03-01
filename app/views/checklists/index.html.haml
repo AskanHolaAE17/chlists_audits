@@ -1,17 +1,14 @@
 %p#notice
   = notice
   
-%h2 Checklists
-
-= link_to 'New Checklist', new_checklist_path, class: 'btn' 
-= link_to 'To Audits Page', audits_path, class: 'btn'
+%h1 Checklists
 
 %table
   %thead
     %tr
       %th Title
       %th Description
-      %th{:colspan => "3"}
+      %th Actions
   %tbody
     - @checklists.each do |checklist|	
       %tr
@@ -22,11 +19,12 @@
           = link_to checklist do
             = checklist.description
         %td
-          = link_to 'Destroy', checklist, method: :delete, data: { confirm: 'Are you sure?' }
+          = link_to 'Edit', edit_checklist_path(checklist), class: 'btn teal lighten-2'
+          = link_to 'Destroy', checklist, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn red lighten-2'
           
 =paginate @checklists
           
-
-       
+%br/
+= link_to 'New Checklist', new_checklist_path, class: 'btn', class: 'btn'        
 
 
