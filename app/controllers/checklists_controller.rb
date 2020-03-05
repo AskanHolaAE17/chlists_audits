@@ -3,7 +3,9 @@
 # Controller for managing the Checklists
 class ChecklistsController < ApplicationController
 
-  before_action :set_checklist, only: [:show, :edit, :update, :add_audit_fields, :update_audit_fields, :destroy]
+  before_action :set_checklist, only: [:show, :edit, :update, 
+                                       :add_audit_fields, :update_audit_fields, 
+                                       :switch_publishing_status, :destroy]
 
   def index
     @checklists = Checklist.page(params[:page]).per(10)
@@ -49,6 +51,16 @@ class ChecklistsController < ApplicationController
       render :add_audit_fields
     end   
   end
+  
+  def switch_publishing_status
+    @checklist.published = !@checklist.published
+    @status_ar = ['Unpublish', 'Publish']
+    @checklist.next_publish_status = @status_ar.delete(@checklist.next_publish_status)
+    @checklist.next_publish_status = @status_ar[0]
+    @checklist.save
+
+    redirect_to checklist_path(@checklist), notice: 'Checklist Status was successfully updated.'
+  end  
   
   def destroy
     @checklist.destroy
