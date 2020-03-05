@@ -6,7 +6,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
-gem 'puma', '~> 3.11'
+gem "puma", ">= 3.12.3"
 
 gem 'haml'
 gem 'sass-rails', '~> 5.0'
@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'devise'
 gem 'kaminari'
 gem 'simple_form'
 gem 'jquery-rails'

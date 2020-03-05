@@ -14,7 +14,7 @@
 
   %b
     Comment:
-  = f.input :comment, label: false, placeholder: 'Your comment', required: 'required', pattern: ".{12,}", title: "12 characters minimum"
+  = f.input :comment, label: false, placeholder: 'Your comment', pattern: ".{12,}", title: "12 characters minimum", required: 'required'
 
   = f.hidden_field :title
   = f.hidden_field :id

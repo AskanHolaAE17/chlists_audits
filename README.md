@@ -8,14 +8,22 @@ The application allows:
 - to create an valid audit (fill a checklist)
 - to CUD existing audits 
 
-Layers: Model, View, Controller, Service.
-Models: Checklist, Audit, Question.
+[Link to production](https://s-chlists-audits.herokuapp.com/) - powered with Heroku server.
 
 **Technologies stack:**
-Ruby: 2.6.3
-Rails: 5.2.4.1
-Preprocessors: HAML, SASS
-UI: Materialize framework 
-Code style: Rails Style Guide
+- Ruby: 2.6.3
+- Rails: 5.2.4.1
+- Preprocessors: HAML, SASS
+- UI: Materialize framework 
+- Code style: Rails Style Guide
 
-[Link to production](https://s-chlists-audits.herokuapp.com/) - powered with Heroku server.
+Layers: 
+- Model 
+- View 
+- Controller 
+- Service
+
+Models: 
+- Checklist
+- Audit
+- Question.
