@@ -4,7 +4,7 @@
 class Checklist < ApplicationRecord
 
   has_many   :questions, dependent: :destroy
-  has_one    :audit
+  has_one    :audit, dependent: :destroy
   belongs_to :user, optional: true
   
   # Settings for dinamical adding Questions to Checklists
