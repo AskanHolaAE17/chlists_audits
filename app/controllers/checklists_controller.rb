@@ -53,11 +53,8 @@ class ChecklistsController < ApplicationController
   end
   
   def switch_publishing_status
-    @checklist.published = !@checklist.published
-    @status_ar = ['Unpublish', 'Publish']
-    @checklist.next_publish_status = @status_ar.delete(@checklist.next_publish_status)
-    @checklist.next_publish_status = @status_ar[0]
-    @checklist.save
+    # Updating Publish Status of the current Checklist
+    ChecklistService::UpdatePublishStatus.call(@checklist)
 
     redirect_to checklist_path(@checklist), notice: 'Checklist Status was successfully updated.'
   end  
