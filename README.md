@@ -21,7 +21,7 @@ The application allows:
 
 **Installation:**
 - download repository
-- intall gems
+- install gems
 - migrate DB
 - run local server
 
