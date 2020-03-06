@@ -2,15 +2,14 @@
 
 # Model for Checklist
 class Checklist < ApplicationRecord
-
   has_many   :questions, dependent: :destroy
   has_one    :audit, dependent: :destroy
   belongs_to :user, optional: true
-  
+
   # Settings for dinamical adding Questions to Checklists
-  accepts_nested_attributes_for :questions, 
-          allow_destroy: true, 
-          reject_if: proc { |att| att['title'].blank? }  
+  accepts_nested_attributes_for :questions,
+                                allow_destroy: true,
+                                reject_if: proc { |att| att['title'].blank? }
 
   validates :title,         presence: true, length: { maximum: 40 }
   validates :description,   presence: true
